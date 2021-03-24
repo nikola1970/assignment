@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 // types
 import { Location } from '../../types';
@@ -10,29 +10,18 @@ import { LocationCard, LocationModal } from './components';
 import { DashboardWrapper } from './styled';
 
 // redux actions and selectors
-import {
-    getLocations,
-    setSelectedLocation,
-    _selectLocations,
-    _selectLocation,
-    _selectLoading,
-    _selectError,
-} from '../../redux/features/dashboadSlice';
+import { setSelectedLocation } from '../../redux/features/dashboadSlice';
 
 // helpers
 import { isObjectEmpty } from '../../utils/helpers';
 
+// hooks
+import { useLocations } from './hooks';
+
 function Dashboard() {
     const dispatch = useDispatch();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const locations = useSelector(_selectLocations);
-    const location = useSelector(_selectLocation);
-    const isLoading = useSelector(_selectLoading);
-    const error = useSelector(_selectError);
-
-    useEffect(() => {
-        dispatch(getLocations());
-    }, [dispatch]);
+    const { location, locations, isLoading, error } = useLocations();
 
     function openLocationModal(id: string | number) {
         setIsModalOpen(true);
@@ -44,7 +33,11 @@ function Dashboard() {
     }
 
     if (error) {
-        return <p>Something went wrong... Try again later</p>;
+        return (
+            <DashboardWrapper>
+                <p>Something went wrong... Try again later</p>
+            </DashboardWrapper>
+        );
     }
 
     return (
