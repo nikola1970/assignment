@@ -16,7 +16,7 @@ import { formatUsers, formatTimezone, formatViews } from '../../../utils/helpers
 
 type ModalProps = Pick<Props, 'isOpen' | 'onClose'> & { location: Location };
 
-const LocationModal = ({ isOpen, onClose, location }: ModalProps) => {
+function LocationModal({ isOpen, onClose, location }: ModalProps) {
     return (
         <Modal isOpen={isOpen} onClose={onClose} width="440px" title={location.name}>
             <ModalTop>
@@ -31,6 +31,6 @@ const LocationModal = ({ isOpen, onClose, location }: ModalProps) => {
             </ButtonWrapper>
         </Modal>
     );
-};
+}
 
 export default LocationModal;

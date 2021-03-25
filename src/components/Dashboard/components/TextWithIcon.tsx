@@ -23,13 +23,13 @@ type Props = {
     text: string;
 };
 
-const TextWithIcon = ({ icon, text }: Props) => {
+function TextWithIcon({ icon, text }: Props) {
     return (
         <TextWithIconWrapper>
             {ICONS[icon]}
             {text}
         </TextWithIconWrapper>
     );
-};
+}
 
 export default TextWithIcon;

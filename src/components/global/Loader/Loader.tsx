@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 // components
 import { LoaderWrapper } from './styled';
@@ -8,14 +8,16 @@ type Props = {
     position?: 'absolute' | 'fixed';
 };
 
-const Loader = ({ position }: Props) => (
-    <LoaderWrapper position={position!} data-testid="loader">
-        <LoaderSvg />
-    </LoaderWrapper>
-);
+function Loader({ position }: Props) {
+    return (
+        <LoaderWrapper position={position!} data-testid="loader">
+            <LoaderSvg />
+        </LoaderWrapper>
+    );
+}
 
 Loader.defaultProps = {
     position: 'absolute',
 };
 
-export default memo(Loader);
+export default Loader;

@@ -36,7 +36,7 @@ export type Props = {
 
 const ariaHideApp = !(process.env.NODE_ENV === 'test');
 
-const StyledModal = ({ children, isOpen, onClose, width, title }: Props) => {
+function StyledModal({ children, isOpen, onClose, width, title }: Props) {
     return (
         <Modal
             ariaHideApp={ariaHideApp}
@@ -49,7 +49,7 @@ const StyledModal = ({ children, isOpen, onClose, width, title }: Props) => {
             </ModalContentWrapper>
         </Modal>
     );
-};
+}
 
 StyledModal.defaultProps = {
     width: '500px',

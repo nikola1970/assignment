@@ -12,7 +12,7 @@ type Props = {
     title: string;
 };
 
-const ModalContentWrapper = ({ children, onClose, width, title }: Props) => {
+function ModalContentWrapper({ children, onClose, width, title }: Props) {
     return (
         <ContentWrapper width={width} data-testid="modal">
             <ModalHeader>
@@ -25,6 +25,6 @@ const ModalContentWrapper = ({ children, onClose, width, title }: Props) => {
             <ChildrenWrapper>{children}</ChildrenWrapper>
         </ContentWrapper>
     );
-};
+}
 
 export default ModalContentWrapper;
