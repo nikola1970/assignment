@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-// reduc store
+// redux store
 import { store } from './redux/store';
 
 // theme

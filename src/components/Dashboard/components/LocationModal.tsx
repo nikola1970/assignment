@@ -24,7 +24,7 @@ function LocationModal({ isOpen, onClose, location }: ModalProps) {
                 <TextWithIcon icon="timezone" text={formatTimezone(location.createdAt)} />
                 <TextWithIcon icon="view" text={formatViews(location.views)} />
             </ModalTop>
-            <Heading6>Desription</Heading6>
+            <Heading6>Description</Heading6>
             <Paragraph lineHeight="1.5rem">{location.description}</Paragraph>
             <ButtonWrapper>
                 <Button onClick={onClose}>Done</Button>
